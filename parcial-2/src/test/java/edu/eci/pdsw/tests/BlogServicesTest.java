@@ -17,6 +17,7 @@
 package edu.eci.pdsw.tests;
 
 import edu.eci.pdsw.entities.User;
+import edu.eci.pdsw.entities.Comment;
 import edu.eci.pdsw.services.BlogServices;
 import edu.eci.pdsw.services.BlogServicesFactory;
 import edu.eci.pdsw.services.ServicesException;
@@ -71,11 +72,11 @@ public class BlogServicesTest {
      * @return
      * @throws SQLException 
      */
-    /*
+   
     private Connection getConnection() throws SQLException{
         return DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "anonymous", "anonymous");
     }
-    */
+    
     
     @Test
     public void pruebaCeroTest() throws SQLException, ServicesException {
@@ -109,22 +110,35 @@ public class BlogServicesTest {
     			
     	    });
     	
+    }
 
-
-	
-        //Realizar la operacion de la logica y la prueba
-        
-        
-//        List<Paciente> pacientes = ServiciosPacientesFactory.getInstance().getTestingForumServices().consultarPacientes();
-
-        
-//        for (Paciente paciente : pacientes){
-//            System.out.println(paciente);
-//        }
-        //assert ...
-        // Assert.fail("Pruebas no implementadas aun...");
-        
-    }    
+    @Test
+    public void pruebaCeroTest() throws SQLException, ServicesException {
+    //Realizar la operacion de la logica y la prueba
     
+
+       List<User> usuarios =blogServices.listUsers();;
+       for (User usuario : usuarios){
+            System.out.println(usuario);
+        }
+        List<Comment>ofensivas=blogServices.searchOffensiveLanguageComments();
+        Assert.assertNotNull(ofensivas);   
+    }  
+    
+    //prueba historia de uso 2
+    @Test
+    public void pruebaoffensiveLanguage() throws SQLException, ServicesException {
+        List<User> usuarios =blogServices.listUsers();;
+
+       for (User usuario : usuarios){
+            System.out.println(usuario);
+        }
+       List<Comment>ofensivas=blogServices.searchOffensiveLanguageComments();
+        Comment comentario="tonto";
+        Comment comentario2="burro";
+        AssertTrue(ofensivas.contains(comentario)||ofensivas.contains(comentario2));
+        
+        
+    }   
 
 }

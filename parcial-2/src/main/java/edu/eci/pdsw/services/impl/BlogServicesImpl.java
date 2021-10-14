@@ -64,13 +64,37 @@ public class BlogServicesImpl implements BlogServices {
 
 	@Override
 	public List<Comment> searchCommentsByBlogTitle(String title) throws ServicesException {
-		throw new UnsupportedOperationException("Not supported yet.");
+            
+            try {
+                Blog blogAll= blogDAO.load(title);
+                List<Comment> comentarios=blogAll.getComments();
+                    return comentarios ;
+		} catch (PersistenceException ex) {
+		throw new UnsupportedOperationException("Search error:"+ex.getLocalizedMessage(), ex);
+                }
 	}
 
 	@Override
 	public List<Comment> searchOffensiveLanguageComments() throws ServicesException {
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
+		try {
+
+                    List<Blog> blogAll= blogDAO.loadAll();
+                    List<Comment> comentariosOfensivos;
+                    for(Blog blog :blogAll){
+                        List<Comment> comentarios=blog.getComments();
+                        
+                        for(Comment comentario:comentarios){
+                            String contenidoCome=comentario.getContent();
+                            if(contenidoCome.equals("burro")|| contenidoCome.equals("tonto")){
+                                comentariosOfensivos.add(comentario);
+                            }
+                        } 
+                    }
+                return comentariosOfensivos;      
+		}catch (PersistenceException ex) {
+                    throw new UnsupportedOperationException("Search error:"+ex.getLocalizedMessage(), ex);
+                } 
+        }
 
 	@Override
 	public Blog searchBlog(int blogID) throws ServicesException {
