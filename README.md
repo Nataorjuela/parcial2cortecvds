@@ -72,6 +72,7 @@ Siga al pie de la letra estas indicaciones para la entrega del examen. EL HACER 
 	```bash
 	$ mvn clean
 	```
+![image](https://user-images.githubusercontent.com/54339107/137329168-037698b6-987a-4eee-96d4-04eacd8f1e29.png)
 
 1. Configure su usuario de GIT
 
@@ -79,6 +80,7 @@ Siga al pie de la letra estas indicaciones para la entrega del examen. EL HACER 
 	$ git config --global user.name "Juan Perez"
 	$ git config --global user.email juan.perez@escuelaing.edu.co
 	```
+![image](https://user-images.githubusercontent.com/54339107/137329448-d5c0f78c-3a16-4620-9f73-08cb2130a8fd.png)
 
 2. Desde el directorio raíz (donde está este archivo README.md), haga commit de lo realizado.
 
