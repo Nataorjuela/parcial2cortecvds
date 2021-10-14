@@ -134,9 +134,9 @@ public class BlogServicesTest {
             System.out.println(usuario);
         }
        List<Comment>ofensivas=blogServices.searchOffensiveLanguageComments();
-        Comment comentario="tonto";
-        Comment comentario2="burro";
-        AssertTrue(ofensivas.contains(comentario)||ofensivas.contains(comentario2));
+        String comentario="tonto";
+        String comentario2="burro";
+        Assert.assertTrue(ofensivas.contains(comentario)||ofensivas.contains(comentario2));
         
         
     }   

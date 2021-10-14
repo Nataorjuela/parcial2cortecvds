@@ -32,7 +32,7 @@ public class Comment {
     
     
     public Comment(Date creationDate, User author, String content) {
-		super();
+		//super();
 		this.id = -1;
 		this.creationDate = creationDate;
 		this.author = author;
